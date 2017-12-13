@@ -1,32 +1,19 @@
 #coding:utf-8
-'''定向网页抓取器说明
-Usage:
-    mini_spider.py -c <spider.conf> 
-    mini_spider.py -h|v
 
-Options:
-    -c 抓取配置文件
-    -v 版本
-    -h 帮助文档
-
-Example:
-    mini_spider.py -c spider.conf
-
-'''
 from docopt import docopt
-from config_load import config_load
+from config_load import Config_load
 import argparse
-
+from seedfile_load import Seedfile_load
+from webpage_parse import Webpage_parse
 if __name__ == '__main__':
     parser=argparse.ArgumentParser(description="this is a mini spider for crawl html")
     parser.add_argument("-c",metavar='file_name',type=argparse.FileType('r'),help="**.conf,some conf about spider")
     parser.add_argument("-v",action='version', version='mini_spider 1.0')
     args=parser.parse_args()
-    # for line in args.file:
-    #     print(line)
-    print(args.c)
-    print(name)
-    arguments = docopt(__doc__, version='1.0')
-    # print(arguments)
-    # print(arguments['-c'])
-    config_load(arguments['-c'])
+    # 以字典形式返回爬虫配置
+    c=Config_load(args.c.name)
+    print('your spider config is :\n',c.config)
+    urls=Seedfile_load.get_urls(c.config['url_list_file'])
+    print('read urls:\n',urls)
+
+    Webpage_parse.parse('http://www.hinabian.com',c.config['crawl_interval'],c.config['crawl_timeout'],c.config['target_url'])
