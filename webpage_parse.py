@@ -25,9 +25,10 @@ class Webpage_parse(object):
             parse_url=parse_url.get('href')
             if(re.match(target_url,parse_url) and re.match('/',parse_url)):
                 parse_url=url+parse_url
-                print(parse_url)
-                out_urls.append(parse_url)
-            elif(re.match(target_url,parse_url)):
+                if(parse_url not in out_urls):
+                    print(parse_url)
+                    out_urls.append(parse_url)
+            elif(re.match(target_url,parse_url) and (parse_url not in out_urls) ):
                 print(parse_url)
                 out_urls.append(parse_url)
         # print(out_urls)
