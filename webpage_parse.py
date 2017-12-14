@@ -8,7 +8,7 @@ class Webpage_parse(object):
     def __init__(self, arg):
         pass
     
-    def parse(url,max_depth,crawl_timeout,target_url):
+    def parse(url,target_url):
         out_urls=[]
         max_depth=int(max_depth) 
         crawl_timeout=int(crawl_timeout)
@@ -23,13 +23,19 @@ class Webpage_parse(object):
         parse_urls = soup.find_all("a")
         for parse_url in parse_urls:
             parse_url=parse_url.get('href')
-            if(re.match(target_url,parse_url) and re.match('/',parse_url)):
-                parse_url=url+parse_url
-                if(parse_url not in out_urls):
+            print(target_url)
+            print(parse_url)
+            try:
+                if(re.match(target_url,parse_url) and re.match('/',parse_url)):
+                    parse_url=url+parse_url
+                    if(parse_url not in out_urls):
+                        print(parse_url)
+                        out_urls.append(parse_url)
+                elif(re.match(target_url,parse_url) and (parse_url not in out_urls) ):
                     print(parse_url)
                     out_urls.append(parse_url)
-            elif(re.match(target_url,parse_url) and (parse_url not in out_urls) ):
-                print(parse_url)
-                out_urls.append(parse_url)
-        # print(out_urls)
+            except Exception as e:
+                print('Tt is not target url')
+        print(out_urls)
         return out_urls
+   

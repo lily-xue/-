@@ -1,4 +1,9 @@
 #coding:utf-8
-def url_table():
-    crawled_list = []
-    return crawled_list
+class Url_table(object):
+    """docstring for url_table"""
+    def __init__(self):
+        self.arg = []
+
+    def update(self,url):
+        self.arg.append(url)
+        return self.arg
