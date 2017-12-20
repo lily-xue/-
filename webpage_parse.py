@@ -10,20 +10,20 @@ class Webpage_parse(object):
     
     def parse(url,target_url):
         out_urls=[]
-        max_depth=int(max_depth) 
-        crawl_timeout=int(crawl_timeout)
-        if(max_depth,crawl_timeout >=0):
-            print('argument ok')
-        else:
-            print('argument ilegal')
-        
+        #max_depth=int(max_depth)
+        #crawl_timeout=int(crawl_timeout)
+        # if(max_depth,crawl_timeout >=0):
+        #     print('argument ok')
+        # else:
+        #     print('argument ilegal')
+        #
         reseponse=urlopen(url)
         html=reseponse.read()
         soup = BeautifulSoup(html, "html.parser")
         parse_urls = soup.find_all("a")
         for parse_url in parse_urls:
             parse_url=parse_url.get('href')
-            print(target_url)
+            # print(target_url)
             print(parse_url)
             try:
                 if(re.match(target_url,parse_url) and re.match('/',parse_url)):

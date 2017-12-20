@@ -13,9 +13,10 @@ class Webpage_save(object):
         try:
             req = urllib.request.urlopen(url)
             html=req.read()
+
             # print(html)
             file_name=url.replace('/', '_').replace(":"," ")
-            print(file_name)
+            # print(file_name)
             if(os.path.exists(output_directory)):
                 pass
             else:
