@@ -10,12 +10,12 @@ class Webpage_parse(object):
     
     def parse(url,target_url):
         out_urls=[]
-        max_depth=int(max_depth) 
-        crawl_timeout=int(crawl_timeout)
-        if(max_depth,crawl_timeout >=0):
-            print('argument ok')
-        else:
-            print('argument ilegal')
+        # max_depth=int(max_depth) 
+        # crawl_timeout=int(crawl_timeout)
+        # if(max_depth,crawl_timeout >=0):
+        #     print('argument ok')
+        # else:
+        #     print('argument ilegal')
         
         reseponse=urlopen(url)
         html=reseponse.read()
