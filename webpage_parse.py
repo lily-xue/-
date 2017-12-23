@@ -10,13 +10,22 @@ class Webpage_parse(object):
     
     def parse(url,target_url):
         out_urls=[]
+<<<<<<< HEAD
         #max_depth=int(max_depth)
         #crawl_timeout=int(crawl_timeout)
+=======
+        # max_depth=int(max_depth) 
+        # crawl_timeout=int(crawl_timeout)
+>>>>>>> aea87110a8d1472e309475d215422b2934d0ca19
         # if(max_depth,crawl_timeout >=0):
         #     print('argument ok')
         # else:
         #     print('argument ilegal')
+<<<<<<< HEAD
         #
+=======
+        
+>>>>>>> aea87110a8d1472e309475d215422b2934d0ca19
         reseponse=urlopen(url)
         html=reseponse.read()
         soup = BeautifulSoup(html, "html.parser")

@@ -1,17 +1,19 @@
 #coding:utf-8
 import os
-class Seedfile_load(object):
-    """docstring for Seedfile_load"""
-    def __init__(self):
-    #super(Seedfile_load, self).__init__()
-        pass
-    def get_urls(file):
-        url_lists=[]
-        try:
-            f=open(file,'r')
-            lines=f.readlines()
-            for line in lines:
-                url_lists.append(line.strip())
-        except FileNotFoundError:
-            print('file not exist')
-        return url_lists
+class Url_unvisited(object):
+    def __init__(self,level,url):
+        self.level=level
+        self.url=url
+
+def get_urls(file):
+    url_lists_unvisited=[]
+    try:
+        f=open(file,'r')
+        lines=f.readlines()
+        for line in lines:
+            print(url_unvisited)
+            url_unvisited=Url_unvisited(0,line.strip())
+            url_lists_unvisited.append(url_unvisited)
+    except FileNotFoundError:
+        print('file not exist')
+    return url_lists_unvisited
