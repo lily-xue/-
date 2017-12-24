@@ -4,8 +4,8 @@ from docopt import docopt
 from config_load import Config_load
 import argparse
 from seedfile_load import Seedfile_load
-from webpage_parse import Webpage_parse
-from Webpage_save import Webpage_save
+import Webpage_parse
+import Webpage_save
 from url_table import Url_table
 
 
